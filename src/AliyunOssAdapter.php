@@ -439,30 +439,30 @@ class AliyunOssAdapter extends AbstractAdapter
      * @param bool   $use_ssl
      * @return string
      */
-    public function getSignedDownloadUrl($path, $expires = 3600, $host_name = '', $use_ssl = false)
+    public function getSignedDownloadUrl($path, $expires = 3600, $host_name = '', $use_ssl = false,$options = [])
     {
         $object = $this->applyPathPrefix($path);
-        $url = $this->client->signUrl($this->bucket, $object, $expires);
+        $url = $this->client->signUrl($this->bucket, $object, $expires, 'GET', $options);
 
-        if (! empty($host_name) || $use_ssl) {
+        if (!empty($host_name) || $use_ssl) {
             $parse_url = parse_url($url);
-            if (! empty($host_name)) {
-                $parse_url['host'] = $this->bucket.'.'.$host_name;
+            if (!empty($host_name)) {
+                $parse_url['host'] = $this->bucket . '.' . $host_name;
             }
             if ($use_ssl) {
                 $parse_url['scheme'] = 'https';
             }
 
-            $url = (isset($parse_url['scheme']) ? $parse_url['scheme'].'://' : '')
-                   .(
-                   isset($parse_url['user']) ?
-                       $parse_url['user'].(isset($parse_url['pass']) ? ':'.$parse_url['pass'] : '').'@'
-                       : ''
-                   )
-                   .(isset($parse_url['host']) ? $parse_url['host'] : '')
-                   .(isset($parse_url['port']) ? ':'.$parse_url['port'] : '')
-                   .(isset($parse_url['path']) ? $parse_url['path'] : '')
-                   .(isset($parse_url['query']) ? '?'.$parse_url['query'] : '');
+            $url = (isset($parse_url['scheme']) ? $parse_url['scheme'] . '://' : '')
+                . (
+                isset($parse_url['user']) ?
+                    $parse_url['user'] . (isset($parse_url['pass']) ? ':' . $parse_url['pass'] : '') . '@'
+                    : ''
+                )
+                . (isset($parse_url['host']) ? $parse_url['host'] : '')
+                . (isset($parse_url['port']) ? ':' . $parse_url['port'] : '')
+                . (isset($parse_url['path']) ? $parse_url['path'] : '')
+                . (isset($parse_url['query']) ? '?' . $parse_url['query'] : '');
         }
 
         return $url;
