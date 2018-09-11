@@ -60,7 +60,7 @@ inspire by [itbdw/laravel-storage-qiniu](https://github.com/itbdw/laravel-storag
 ```php
 Storage::disk('oss')->putFile($md5_path, '/local_file_path/1.png', ['mimetype' => 'image/png','filename' => 'filename_by_down.png']);
 
-Storage::disk('oss')->signedDownloadUrl($path, 3600, 'oss-cn-beijing.aliyuncs.com', true);
+Storage::disk('oss')->signedDownloadUrl($path, 3600, 'oss-cn-beijing.aliyuncs.com', true , $options);
 ```
 
 ## IDE Helper
