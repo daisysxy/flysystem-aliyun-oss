@@ -1,10 +1,13 @@
+## daisysxy
+
+因为需要使用到缩略图，因此我修改了signedDownloadUrl 获取签名的链接时缺少options传递。
+
+
 # Flysystem Adapter for Aliyun OSS.
 
 This is a Flysystem adapter for the Aliyun OSS ~2.2.1
 
 inspire by [aobozhang/aliyun-oss-adapter](https://github.com/aobozhang/aliyun-oss-adapter) 
-
-修改了signedDownloadUrl 获取签名的链接时缺少options传递
 
 ## Installation
 
