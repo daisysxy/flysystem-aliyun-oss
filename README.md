@@ -2,7 +2,9 @@
 
 This is a Flysystem adapter for the Aliyun OSS ~2.2.1
 
-inspire by [aobozhang/aliyun-oss-adapter](https://github.com/aobozhang/aliyun-oss-adapter) 更新了获取加密链接，但是缺少options传递
+inspire by [aobozhang/aliyun-oss-adapter](https://github.com/aobozhang/aliyun-oss-adapter) 
+
+修改了signedDownloadUrl 获取签名的链接时缺少options传递
 
 ## Installation
 
