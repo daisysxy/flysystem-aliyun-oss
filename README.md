@@ -12,7 +12,7 @@ inspire by [aobozhang/aliyun-oss-adapter](https://github.com/aobozhang/aliyun-os
 composer require apollopy/flysystem-aliyun-oss
 ```
 
-## for Laravel
+## for Laravel 5.5以下版本
 
 This service provider must be registered.
 
