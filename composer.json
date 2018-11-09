@@ -20,5 +20,12 @@
     "psr-4": {
       "ApolloPY\\Flysystem\\AliyunOss\\": "src/"
     }
+  },
+    "extra": {
+    "laravel": {
+      "providers": [
+        "ApolloPY\\Flysystem\\AliyunOss\\AliyunOssServiceProvider"
+      ]
+    }
   }
 }
